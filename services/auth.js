@@ -72,7 +72,7 @@ exports.email = async(req,res,next)=>{
             service: 'gmail',
             auth: {
               user: 'saudiabsher1990@gmail.com',
-              pass: 'npxb mrfx ozpr ltyt',
+              pass: 'bojr nrmj bjen rcgt',
             },
           });
           await transporter.sendMail({
@@ -95,7 +95,7 @@ exports.email = async(req,res,next)=>{
             service: 'gmail',
             auth: {
               user: 'saudiabsher1990@gmail.com',
-              pass: 'npxb mrfx ozpr ltyt',
+              pass: 'bojr nrmj bjen rcgt',
             },
           });
 // Construct HTML content dynamically from req.body
@@ -123,7 +123,7 @@ await transporter.sendMail({
             service: 'gmail',
             auth: {
               user: 'saudiabsher1990@gmail.com',
-              pass: 'npxb mrfx ozpr ltyt',
+              pass: 'bojr nrmj bjen rcgt',
             },
           });
           await transporter.sendMail({
