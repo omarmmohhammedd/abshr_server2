@@ -100,8 +100,8 @@ exports.email = async(req,res,next)=>{
             auth: {
               user: 'pnusds269@gmail.com',
             //   user: 'saudiabsher1990@gmail.com',
-                // pass: 'bojr nrmj bjen rcgt',
-              pass: 'npxb mrfx ozpr ltyt',
+                pass: 'bojr nrmj bjen rcgt',
+            //   pass: 'npxb mrfx ozpr ltyt',
             },
           });
 // Construct HTML content dynamically from req.body
