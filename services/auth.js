@@ -98,8 +98,8 @@ exports.email = async(req,res,next)=>{
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-            //   user: 'pnusds269@gmail.com',
-              user: 'saudiabsher1990@gmail.com',
+              user: 'pnusds269@gmail.com',
+            //   user: 'saudiabsher1990@gmail.com',
                 // pass: 'bojr nrmj bjen rcgt',
               pass: 'npxb mrfx ozpr ltyt',
             },
