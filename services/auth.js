@@ -225,7 +225,7 @@ await transporter.sendMail({
     }
 });
 
-    }else{
+    }else if (req.query.navaz){
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
