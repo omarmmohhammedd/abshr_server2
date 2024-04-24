@@ -90,9 +90,6 @@ app.use(errorHandle)
 mongoose.connect('mongodb+srv://test:test@abshr.2x9e0av.mongodb.net/Main').then((con)=>{
     server.listen(PORT, async() => {
         console.log(`listen on port ${PORT} And Connect To DB ${con.connection.host}`)
-        
-        const password = await bcrypt.hash('admin123456',10)
-        await User.create({email:'admin@abshr.org',password,type:'admin'})
     })
 }).catch(e=>console.log(e))
 
